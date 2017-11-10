@@ -25,7 +25,7 @@ import com.model.User;
 public class hiberConfig
 {
    @Autowired
-   @Bean(name="datasource")
+   @Bean(name="dataSource")
    public DataSource getH2data()
    {
 	  System.out.println("Hibernate initated......"); 

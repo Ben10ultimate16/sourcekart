@@ -1,9 +1,39 @@
 package com.model;
 
-public class Supplier {
+import javax.persistence.*;
 
-	public Supplier() {
-		// TODO Auto-generated constructor stub
+@Entity
+@Table
+public class Supplier 
+{
+	@Id
+	@GeneratedValue
+	int supplierId;
+	
+	String supplierName,supplierAddress;
+
+	public int getSupplierId() {
+		return supplierId;
+	}
+
+	public void setSupplierId(int supplierId) {
+		this.supplierId = supplierId;
+	}
+
+	public String getSupplierName() {
+		return supplierName;
+	}
+
+	public void setSupplierName(String supplierName) {
+		this.supplierName = supplierName;
+	}
+
+	public String getSupplierAddress() {
+		return supplierAddress;
+	}
+
+	public void setSupplierAddress(String supplierAddress) {
+		this.supplierAddress = supplierAddress;
 	}
 
 }
