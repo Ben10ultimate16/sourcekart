@@ -9,37 +9,35 @@
 	<url>http://maven.apache.org</url>
 	<dependencies>
 
+ <dependency>
+		<groupId>com</groupId>
+  <artifactId>sourcekartBackEnd</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+</dependency>  
+ 
+		
 		<dependency>
-			<groupId>com</groupId>
-			<artifactId>sourcekartBackEnd</artifactId	>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>4.3.9.RELEASE</version>
 		</dependency>
-
-
-		<!-- https://mvnrepository.com/artifact/jstl/jstl -->
+		
+		
+		
+		
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+		
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 			<version>7.0</version>
 			<scope>provided</scope>
 		</dependency>
-
-
-		<!-- ========================================================================================= -->
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>4.3.9.RELEASE</version>
-		</dependency>
-		<!-- ========================================================================================= -->
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+ 
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -51,11 +49,10 @@
 	<build>
 		<finalName>sourcekart</finalName>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-				<configuration>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+    		<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>

@@ -8,7 +8,13 @@
 <style type="text/css">
 .img-rounded
 {
-back
+background-color: white;
+}
+.sliderimage
+	{
+		width:1250px !important;
+		height:300px !important;
+	}
 }
 </style>
 <title>Web App</title>
@@ -22,10 +28,10 @@ back
 <meta charset="utf-8">
 
 </head>
-<%@ include file="header.jsp" %> 
+<%@ include file="header.jsp"%> 
 <body>
 
-<div class="container">
+<div class="container-fluid">
 
 <h2><i>sourcekart</i></h2>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -33,25 +39,47 @@ back
 <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
 <li data-target="#myCarousel2" data-slide-to="1" class="active"></li>
 <li data-target="#myCarousel3" data-slide-to="2" class="active"></li>
+<li data-target="#myCarousel4" data-slide-to="3" class="active"></li>
+<li data-target="#myCarousel5" data-slide-to="4" class="active"></li>
+<li data-target="#myCarousel6" data-slide-to="5" class="active"></li>
 </ol>
 
-<div class="carousel-inner">
+<div class="carousel-inner" style="width:1300px height:500px">
 <div class="item active">
-<img class="img-rounded" class="img-responsive center-block"
-src="resources/lap1.jpg" style="width:1140px;height:250px"/> 
+<img class="img-rounded img-responsive center-block sliderimage" 
+src="resources/Img1.jpg" >
  </div>
 
 
 
 <div class="item">
-<img class="img-rounded" class="img-responsive center-block"
-src="resources/lap5.jpg" style="width:1140px;height:250px"/>
+<img class="img-rounded img-responsive center-block sliderimage"
+src="resources/Img2.jpg">
 </div>
 
 <div class="item">
-<img class="img-rounded" class="img-responsive center-block"
-src="resources/lap8.jpg" style="width:1140px;height:250px"/>
+<img class="img-rounded img-responsive center-block sliderimage"
+src="resources/Img3.jpg" >
 </div>
+
+<div class="item">
+<img class="img-rounded img-responsive center-block sliderimage"
+src="resources/Img6.jpg" >
+</div>
+
+
+<div class="item">
+<img class="img-rounded img-responsive center-block sliderimage"
+src="resources/Img4.jpg" >
+</div>
+
+
+
+<div class="item">
+<img class="img-rounded img-responsive center-block sliderimage"
+src="resources/Img5.jpg" >
+</div>
+
 </div>
 
 <a class="left carousel-control" href="#myCarousel" data-slide="prev">
