@@ -1,28 +1,55 @@
 package com.controller;
 
+import java.util.Collection;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.DaoImpl.Userdaoimpl;
+import com.Dao.ProductDAO;
+/*import com.Dao.ProductDAO;*/
+import com.DaoImpl.UserDaoImpl;
+import com.model.Product;
+/*import com.model.Product;*/
 import com.model.User;
 
 @Controller
 public class indexController
 {
 	@Autowired
-	   Userdaoimpl userdaoimpl;
+	   UserDaoImpl userdaoimpl;
+	@Autowired
+	ProductDAO productDAO;
+	
+	@RequestMapping("/")
+	   public String index(Model m)
+		{
+		List<Product> listLatestProduct=productDAO.retriveLatestProduct();
+		m.addAttribute("listLatestProduct", listLatestProduct);
+		return "index";
+	
+		}		
 
-   @RequestMapping("/")
-   public String index()
-   {
-	   return "index";
-   }
+	
+  /* @RequestMapping("/")
+   public String index(Model m)
+	{
+		List<Product> listLatestProduct=productDao.retrieveProduct();
+		m.addAttribute("listLatestProduct", listLatestProduct);
+		return "index";
+	}
+*/
    /* @RequestMapping("/register")
    public String registration()
    {
@@ -48,7 +75,70 @@ public class indexController
 	   return mv;
    }
    
-   @RequestMapping("/Login")
+   @RequestMapping("/goTologin")
+	public String goTologin(Model m)
+	{
+		User user= new User();
+		m.addAttribute(user);
+		return "login";
+	}
+	
+	@RequestMapping("/userLogged")
+	public String userLogged(Model m,HttpSession session)
+	{
+		String roleName=null;
+		boolean loggedIn=false;
+		Authentication auth=SecurityContextHolder.getContext().getAuthentication();
+		String loggedUsername=auth.getName();
+		session.setAttribute("username", loggedUsername);
+		Collection<GrantedAuthority> auths=(Collection<GrantedAuthority>)auth.getAuthorities();
+		for(GrantedAuthority role:auths)
+		{
+			if(role.getAuthority().equals("ROLE_ADMIN"))
+			{
+				roleName="admin";
+				loggedIn=true;
+			}
+			else
+			{
+				roleName="user";
+				loggedIn=true;
+			}
+		}
+		
+		session.setAttribute("roleName", roleName);
+		session.setAttribute("loggedIn", loggedIn);
+		
+		
+		return "redirect:/";
+	}
+	
+	@RequestMapping("/error")
+	public String errorPage(Model m,HttpSession session)
+	{
+		return "error";
+	}
+   
+	@RequestMapping("/ProductList")
+	public String Page(Model m)
+	{
+		List<Product> listProduct = productDAO.retrieveProduct();
+		m.addAttribute("productList",listProduct);
+		return "ProductList";
+	}
+	
+	@RequestMapping(value="/ProductDesc/{ProductId}",method=RequestMethod.GET)
+	public String viewProduct(@PathVariable("productId")int ProductId,Model m)
+	{
+		Product product=productDAO.getProduct(ProductId);
+		m.addAttribute(product);
+		List<Product> listProduct=productDAO.retrieveProduct();
+		m.addAttribute("ProductList",listProduct);
+		return "ProductDesc";
+	}
+   
+   
+ /*  @RequestMapping("/Login")
   	public String login(@RequestParam(value = "error", required = false) String error, 
   			@RequestParam(value = "logout", required = false) String logout, Model model)
   	{
@@ -61,6 +151,6 @@ public class indexController
   			}
   		return "Login";
   		}
-
+*/
 
 }

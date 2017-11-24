@@ -44,11 +44,6 @@
 </div>
 
 <div class="form-group">
-<label>Role</label>
-<spr:input path="role" placeholder="Enter role...." class="form-control"/>
-</div>
-
-<div class="form-group">
 <label>Address</label>
 <spr:input path="address" placeholder="Enter address...." class="form-control"/>
 </div>
@@ -57,7 +52,8 @@
 <label>Country</label>
 <spr:input path="country" placeholder="Enter country...." class="form-control"/>
 </div>
-
+<spr:input type="hidden" path="role" value="ROLE_USER" />
+<spr:input type="hidden" path="enabled" value="TRUE" />
 <button type="submit" class="btn btn-lg btn-info">Submit</button>
 <button type="reset" class="btn btn-lg btn-info">Cancel</button>
 </spr:form>

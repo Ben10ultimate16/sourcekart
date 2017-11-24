@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Category-DelightFrontEnd</title>
+<title>Category</title>
 </head>
 <body>
  <jsp:include page="header.jsp"></jsp:include>
@@ -54,8 +54,8 @@
 <td>${category.catDesc}</td>
 
 <td>
-<a href="<c:url value="deleteCategory/${category.catId}"/>">DELETE</a>
-<a href="<c:url value="updateCategory/${category.catId}"/>">UPDATE</a>
+<a href="<c:url value="/deleteCategory/${category.catId}"/>">DELETE</a>
+<a href="<c:url value="/updateCategory/${category.catId}"/>">UPDATE</a>
 </td>
 </tr>
 </c:forEach>

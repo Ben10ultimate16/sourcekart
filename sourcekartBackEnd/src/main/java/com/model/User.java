@@ -1,4 +1,4 @@
-package com.model;
+	package com.model;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import org.springframework.stereotype.Component;
@@ -17,7 +17,7 @@ public class User implements Serializable
 	  private String name;
       private String phone;
       private String address;
-      private String password;
+      private int password;
       private String role;
       private String country;
       private boolean enabled;
@@ -48,12 +48,15 @@ public String getAddress() {
 public void setAddress(String address) {
 	this.address = address;
 }
-public String getPassword() {
+
+public int getPassword() {
 	return password;
 }
-public void setPassword(String password) {
+
+public void setPassword(int password) {
 	this.password = password;
 }
+
 public String getRole() {
 	return role;
 }

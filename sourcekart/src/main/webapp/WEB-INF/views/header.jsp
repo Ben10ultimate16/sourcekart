@@ -19,17 +19,14 @@
 <body>
 <style>
 .navbar-inverse 
-
  {
     background-color:#d0b89b !important;
     border-color: #f4f3f7 !important;
     color:#0000 !important;
 }
-
 .navbar-inverse .navbar-nav>li>a {
     color: #21263b !important;
 }
-
 </style>
 
 <nav id="navbar-red" class="navbar navbar-inverse navbar-static-top" role="navigation">
@@ -51,16 +48,30 @@
 <li><a href="${home}">Home</a></li>
 
 <c:if test="${pageContext.request.userPrincipal.name==null}">
+<li><a style="color:white" href="${pageContext.request.contextPath}/goTologin"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;LOGIN</a></li>
 <c:url value="/register" var="reg"></c:url>
 <li><a href="${reg}">Register</a></li>
-
-<c:url value="/Login" var="log"></c:url>
-<li><a href="${log}">Login<span class="glyphicon glyphicon-log-in"></span></a></li>
 </c:if>
+
+<%-- <c:url value="/Login" var="log"></c:url>
+<li><a href="${log}">Login<span class="glyphicon glyphicon-log-in"></span></a></li>
+ --%>
+ 
+ <c:if test="${pageContext.request.userPrincipal.name!=null }">
+<c:if test="${sessionScope.roleName=='admin'}">
+<li class="navbarTitleStyle dropdown">
 <li><a href="product">Product </a></li>
-<li><a href="userHome">UserHome</a></li>
 <li><a href="Category">Category</a></li>
 <li><a href="supplier">Supplier</a></li>
+</c:if>
+<c:if test="${sessionScope.roleName=='user'}">
+<%-- <li><a style="color:white" href="${pageContext.request.contextPath}/ProductList">ProductList</a></li> --%>
+<li><a style="color:white" href="${pageContext.request.contextPath}/AllProducts">&nbsp;Products</a></li>
+
+<li><a style="color:white" href="${pageContext.request.contextPath}/MyCart">My Cart</a></li>
+</c:if>
+<li><a style="color:white" href="${pageContext.request.contextPath}/logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;LOG OUT</a></li>
+</c:if>
 
 </ul>
 </div>

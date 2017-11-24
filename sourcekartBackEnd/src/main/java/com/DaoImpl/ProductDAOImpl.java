@@ -86,4 +86,24 @@ public class ProductDAOImpl implements ProductDAO
 		}
 	}
 
+	public List<Product> retriveLatestProduct()
+	{
+		Session session=sessionFactory.openSession();
+		Query query=session.createQuery("from Product p order by p.productId desc");
+		query.setMaxResults(3);
+		List<Product> listProduct=query.list();
+		session.close();
+		return listProduct;
+
+}
+
+	public List<Product> getCategoryProduct(int categoryId)
+	{
+		Session session=sessionFactory.openSession();
+		Query query=session.createQuery("from Product where catId="+categoryId);
+		List<Product> listProduct=query.list();
+		session.close();
+		return listProduct;
+}
+
 }

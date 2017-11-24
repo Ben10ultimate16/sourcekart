@@ -14,8 +14,10 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.Dao.UserDao;
-import com.DaoImpl.Userdaoimpl;
+import com.DaoImpl.UserDaoImpl;
+import com.model.Cart;
 import com.model.Category;
+import com.model.Orders;
 import com.model.Product;
 import com.model.Supplier;
 import com.model.User;
@@ -59,18 +61,20 @@ public SessionFactory getSessionFac(DataSource datasource)
 	sb.addAnnotatedClass(Category.class);
 	sb.addAnnotatedClass(Product.class);
 	sb.addAnnotatedClass(Supplier.class);
+	sb.addAnnotatedClass(Cart.class);
+	sb.addAnnotatedClass(Orders.class);
 	SessionFactory sessionFactory=sb.buildSessionFactory();
 	System.out.println("session Factory is started");
 	return sessionFactory;
 }
 
 
-@Autowired
+/*@Autowired
 @Bean(name="UserDaoImpl")
 public UserDao getUserData(SessionFactory sessionFac)
 {
-	return new Userdaoimpl(sessionFac);
-}
+	return new UserDaoImpl( );
+}*/
 
 @Autowired
 @Bean

@@ -84,9 +84,10 @@ public class ProductController
 	{
 		productDAO.addProduct(product);
 		int insertProductId = Integer.valueOf(product.getProductId());
+		//D:\sathishkumar\sourcekart\src\main\webapp\WEB-INF\resources\pimages
 		
-		String path = "E:\\sourcekart\\sourcekart\\src\\main\\webapp\\WEB-INF\\resources";
-		String orginalFilename = fileDetail.getOriginalFilename();
+		String path ="D:\\sathishkumar\\sourcekart\\src\\main\\webapp\\WEB-INF\\resources\\pimages\\";
+		//String orginalFilename = fileDetail.getOriginalFilename();
 		/*Session session = sessionFactory.openSession();
 		String imageUpdateQuery = "UPDATE Product set imageName = :imageName WHERE productId = :productId";
 		Query query = session.createQuery(imageUpdateQuery);
@@ -143,7 +144,7 @@ public class ProductController
 		Product product1=new Product();
 		m.addAttribute(product1 );
 		
-		String path="E:\\sourcekart\\sourcekart\\src\\main\\webapp\\WEB-INF\\resources";
+		String path=" D:\\sathishkumar\\sourcekart\\src\\main\\webapp\\WEB-INF\\resources\\pimages\\";
 		String totalFileWithPath=path+String.valueOf(product.getProductId())+".jpg";
 		File productImage=new File(totalFileWithPath);
 		
@@ -184,4 +185,92 @@ public class ProductController
 		m.addAttribute("productList",listProduct);
 		return "Product";
 	}
+	
+	@RequestMapping(value="productlist")
+	public String showProducts(Model m)
+	{
+		List<Product> listProduct=productDAO.retrieveProduct();
+		m.addAttribute("productList",listProduct);
+		return "ProductListA";
+	}
+	
+	@RequestMapping(value="ProductDesc/{productId}")
+	public String showProductDesc(@PathVariable("ProductId")int productId, Model m)
+	{
+		Product product=productDAO.getProduct(productId);
+		m.addAttribute("product",product);
+		return "ProductDesc";
+	}
+
+	
+	
+	
+	@RequestMapping(value="/AllProducts",method=RequestMethod.GET)
+	public String showAllProducts(Model m)
+	{
+		Product product=new Product();
+		m.addAttribute(product);
+		List<Product> listProduct=productDAO.retrieveProduct();
+		m.addAttribute("productList",listProduct);
+		int catId=0;
+		m.addAttribute("catId", catId);
+		Category category=new Category();
+		m.addAttribute(category);
+		m.addAttribute("categoryList",this.getCategories());
+		m.addAttribute("supplierList",this.getSupplier());
+
+		return "ProductDesc";
+		}
+	
+	@RequestMapping(value="/categoryProducts",method=RequestMethod.POST)
+	public String categoryProduct(HttpServletRequest req,Model m)
+	{
+		int catId=0;
+		catId=Integer.valueOf(req.getParameter("catId"));
+		
+		Product product=new Product();
+		m.addAttribute(product);
+		
+		
+		m.addAttribute("catId", catId);
+		Category category=new Category();
+		if(catId==0)
+		{
+			List<Product> listProduct=productDAO.retrieveProduct();
+			m.addAttribute("productList",listProduct);
+		}
+		else
+		{
+			List<Product> listProduct=productDAO.getCategoryProduct(catId);
+			m.addAttribute("productList",listProduct);
+		}
+		m.addAttribute(category);
+		m.addAttribute("categoryList",this.getCategories());
+		m.addAttribute("supplierList",this.getSupplier());
+
+		return "ProductDesc";
+		
+	}
+	
+	
+	
+	@RequestMapping(value="/ProductDetail/{productId}",method=RequestMethod.GET)
+	public String showProductDetail(@PathVariable("productId")int productId, Model m)
+	{
+
+		Product product=productDAO.getProduct(productId);
+		m.addAttribute(product);
+		/*int catId=product.getCatId();
+		Category category=categoryDAO.getCategory(catId);
+		m.addAttribute(category);
+		int supId=product.getSupId();
+		Supplier supplier=supplierDAO.getSupplier(supId);
+		m.addAttribute(supplier);*/
+	return "ProductDetail";
+	}
 }
+
+	
+	
+	
+

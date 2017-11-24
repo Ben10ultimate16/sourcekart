@@ -44,11 +44,13 @@
 
 			<tr>
 				<td>Category Name</td>
-				<td><form:select path="catId">
+				<td><form:input path="catId" /></td>
+				
+				<%-- <td><form:select path="catId">
 						<form:option value="0" label="---Select---" />
 						<form:options items="${categoryList}" />
 					</form:select></td>
-			</tr>
+			 </tr>--%>
 
 			<tr>
 				<td>Supplier</td>
@@ -69,7 +71,8 @@
 
 		</table>
 	</form:form>
-
+	
+	${error}
 	<table cellspacing="2" align="center">
 		<tr bgcolor="gray">
 			<td>Product ID</td>

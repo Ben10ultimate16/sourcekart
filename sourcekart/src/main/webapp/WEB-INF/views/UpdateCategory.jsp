@@ -55,8 +55,8 @@
 <td>${category.catDesc}</td>
 
 <td>
-<a href="<c:url value="deleteCategory/${category.catId}"/>">DELETE</a>
-<a href="<c:url value="updateCategory/${category.catId}"/>">UPDATE</a>
+<a href="<c:url value="/deleteCategory/${category.catId}"/>">DELETE</a>
+<a href="<c:url value="/updateCategory/${category.catId}"/>">UPDATE</a>
 </td>
 </tr>
 </c:forEach>
