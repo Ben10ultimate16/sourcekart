@@ -10,7 +10,7 @@
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<c:url value="/AddSupplier" var="insert" />
-	<form:form action="${insert} " modelAttribute="supplier">
+	<form:form action="${insert} " modelAttribute="supplier" id="supplierForm">
 		
 		<table align="center" cellspacing="2">
 			<tr>

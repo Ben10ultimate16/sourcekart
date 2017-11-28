@@ -98,3 +98,4 @@ src="resources/Img5.jpg" >
 </body>
 </html>
 
+<jsp:include page="footer.jsp"></jsp:include>

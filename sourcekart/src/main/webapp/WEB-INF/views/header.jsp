@@ -4,19 +4,33 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <%@ taglib  uri="http://www.springframework.org/tags/form" prefix= "spr" %>
  <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Trasitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+ 
+ 
+ 
+ 
 <html>
 <head>
 
 
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-</head>
-<body>
+
+<script
+	src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+
+
+<script
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/js/FormValidation.js"></script>
+
+
+
 <style>
 .navbar-inverse 
  {
@@ -28,7 +42,8 @@
     color: #21263b !important;
 }
 </style>
-
+</head>
+<body>
 <nav id="navbar-red" class="navbar navbar-inverse navbar-static-top" role="navigation">
 <div class="container">
 <ul class="nav navbar-nav">
@@ -76,5 +91,3 @@
 </ul>
 </div>
 </nav>
-</body>
-</html>

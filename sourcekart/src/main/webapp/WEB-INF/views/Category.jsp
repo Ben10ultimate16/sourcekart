@@ -8,11 +8,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Category</title>
+
+
+
+
+
 </head>
 <body>
  <jsp:include page="header.jsp"></jsp:include>
 <!--<form action="AddCategory" method="post">-->
-<form:form action="AddCategory" modelAttribute="category">
+<form:form action="AddCategory" modelAttribute="category"  id="categoryForm">
 <table align="center" cellspacing="2" >
 <tr >
 <td colspan="2">Category Module</td>

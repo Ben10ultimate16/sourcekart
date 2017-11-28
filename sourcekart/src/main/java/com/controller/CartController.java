@@ -150,7 +150,7 @@ SessionFactory sessionFactory;
 		
 	}
 	
-	/*@RequestMapping(value="/ack")
+	@RequestMapping(value="/ack")
 	public String ack(HttpServletRequest req)
 	{
 		Principal principal = req.getUserPrincipal();
@@ -165,7 +165,7 @@ SessionFactory sessionFactory;
 
 		}
 		return "AckOrder";
-	}*/
+	}
 	@RequestMapping(value="/deleteCart/{cartId}",method=RequestMethod.GET)
 	public String deleteCart(@PathVariable("cartId")int cartId,Model m,HttpServletRequest req)
 	{

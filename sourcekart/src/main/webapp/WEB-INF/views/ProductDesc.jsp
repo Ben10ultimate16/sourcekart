@@ -58,6 +58,7 @@
 					<div class="clear"></div>
 					<div class="clear"></div>
 					<span><i class="fa fa-inr"></i> ${product.price}</span>
+					<span>${product.productDesc}</span>
 				</div>
 			
 				</div>

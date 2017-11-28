@@ -9,8 +9,14 @@
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
+	
+	
+	
+	
+	
+	
 	<c:url value="/InsertProduct" var="insert"/>
-	<form:form action="${insert} " modelAttribute="product" enctype="multipart/form-data">
+	<form:form action="${insert} " modelAttribute="product" enctype="multipart/form-data" id="productForm">
 
 		<table align="center">
 
@@ -43,19 +49,21 @@
 			</tr>
 
 			<tr>
-				<td>Category Name</td>
-				<td><form:input path="catId" /></td>
+				<td>Category</td>
 				
-				<%-- <td><form:select path="catId">
+			
+			
+				<td><form:select path="catId">
 						<form:option value="0" label="---Select---" />
 						<form:options items="${categoryList}" />
 					</form:select></td>
-			 </tr>--%>
+			 </tr>
 
 			<tr>
 				<td>Supplier</td>
 				<td><form:input path="supplierId" /></td>
 			</tr>
+			
 			<tr>
 				<td>Product Image</td>
 				<td><form:input type="file" path="pimage" /></td>

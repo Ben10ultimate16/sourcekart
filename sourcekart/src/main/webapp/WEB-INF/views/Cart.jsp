@@ -24,6 +24,7 @@
 						<tr>
 							<th>Product Name</th>
 							<th>Product Image</th>
+							<th>Product Description</th>
 							<th> Quantity</th>
 							<th>Price&nbsp;(&nbsp;<i class="fa fa-rupee"></i>&nbsp;)</th>
 							<th>Total&nbsp;(&nbsp;<i class="fa fa-rupee"></i>&nbsp;)</th>
@@ -37,7 +38,8 @@
 		<c:forEach items="${userCartList}" var="c" varStatus="st">
 						<tr >
 								<td>${c.product.productName}</td>
-								<td><img src="${pageContext.request.contextPath}/resources/pimages/${c.product.productId}.jpg" class="cartproductimg"/></td>
+								<td><img src="${pageContext.request.contextPath}/resources/pimages/${c.product.productId}.jpg" class="cartproductimg" style="width:200px;height:200px;align:center;"/></td>
+								<td>${c.product.productDesc}</td>
 								<td>${c.cartQnty}</td>
 								<td>${c.cartPrice}</td>
 								<td>${c.cartQnty*c.cartPrice}</td>
@@ -48,18 +50,22 @@
 		</c:forEach>
 
 				<tr>
+					
 					<td colspan="7" ><span class="col-lg-7" align="right" ><label >GRAND TOTAL:&nbsp;</label>&nbsp;<i class="fa fa-inr"></i>&nbsp;<b><c:out value="${gtot}"></c:out></b></span>
 					 </td>
-				 </tr>
- 
-
-	</table>
-	<input type="submit" value="PLACE ORDER" class="btn btn-plc" style=" font-family: -webkit-pictograph;    margin-top: -119px; align:center;">
+					
 	
+				 </tr>
+			
+				</table>
+	
+	 <a href="${pageContext.request.contextPath}/Mycart" class="btn btn-cntu" id="placeorder" align="center"></a>
+	<input type="submit" value="PLACE ORDER" align="right" style="margin-left:80%;color:green;">
+ 
 	</form>
  </div>
 
- <a href="${pageContext.request.contextPath}/" class="btn btn-cntu" id="continueshop" > CONTINUE SHOPPING</a><canvas>white</canvas> 
+ <a href="${pageContext.request.contextPath}/" class="btn btn-cntu" id="continueshop" align="center"> CONTINUE SHOPPING</a> 
 
 </div>
 
