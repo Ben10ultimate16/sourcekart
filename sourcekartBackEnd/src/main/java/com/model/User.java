@@ -17,8 +17,9 @@ public class User implements Serializable
 	  private String name;
       private String phone;
       private String address;
-      private int password;
-      private String role;
+      private String password;
+     
+	private String role;
       private String country;
       private boolean enabled;
       public String getEmail() 
@@ -33,6 +34,14 @@ public class User implements Serializable
       public String getName() {
 	return name;
 }
+public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 public void setName(String name) {
 	this.name = name;
 }
@@ -49,13 +58,6 @@ public void setAddress(String address) {
 	this.address = address;
 }
 
-public int getPassword() {
-	return password;
-}
-
-public void setPassword(int password) {
-	this.password = password;
-}
 
 public String getRole() {
 	return role;

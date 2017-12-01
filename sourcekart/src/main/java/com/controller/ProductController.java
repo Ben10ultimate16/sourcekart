@@ -50,7 +50,7 @@ public class ProductController
 		List<Product> listProduct = productDAO.retrieveProduct();
 		m.addAttribute("productList",listProduct);
 		m.addAttribute("categoryList",this.getCategories());
-		
+		m.addAttribute("supplierList",this.getSupplier());
 		return "Product";
 	}
 	
@@ -132,8 +132,8 @@ public class ProductController
 		List<Product> listProduct=productDAO.retrieveProduct();
 		m.addAttribute("productList",listProduct);
 		m.addAttribute("categoryList",this.getCategories());
-		m.addAttribute("supplierId",this.getSupplier());
-		
+		/*m.addAttribute("supplierId",this.getSupplier());*/
+		m.addAttribute("supplierList",this.getSupplier());
 		return "UpdateProduct";
 	}
 	

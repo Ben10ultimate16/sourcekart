@@ -47,14 +47,20 @@
 <spr:input path="name" placeholder="Enter name...." class="form-control"/>
 </div>
 
-<div class="form-group">
+<%-- <div class="form-group">
 <label>Password</label>
-<spr:input path="password" type="password" placeholder="Enter password...." class="form-control"/>
+<spr:input path="password"placeholder="Enter password...."  class="form-control"/>
 </div>
-
+ --%>
+ 
+ <div class="form-group">
+<label>Password</label>
+<spr:input path="password" placeholder="Enter password...." class="form-control"/>
+</div>
+ 
 <div class="form-group">
 <label>Phone</label>
-<spr:input path="phone" placeholder="Enter phone...." class="form-control"/>
+<spr:input path="phone" type="password" placeholder="Enter phone...." class="form-control"/>
 </div>
 
 <div class="form-group">

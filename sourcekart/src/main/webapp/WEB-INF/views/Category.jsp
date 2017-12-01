@@ -45,8 +45,9 @@
 </table>
 </form:form>
 
-<table cellspacing="2" align="center">
-<tr bgcolor="green">
+<div class="col-md-12 col-lg-12">
+<table cellspacing="2" align="center"  class="table table-bordered">
+<tr bgcolor="gray">
 <td>Category ID</td>
 <td>Category Name</td>
 <td>Category Description</td>
@@ -65,5 +66,6 @@
 </tr>
 </c:forEach>
 </table>
+</div>
 </body>
 </html>

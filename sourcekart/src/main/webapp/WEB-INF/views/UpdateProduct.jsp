@@ -50,7 +50,14 @@
 
 			<tr>
 				<td>Supplier</td>
-				<td><form:input path="supplierId" /></td>
+				<%-- <td><form:input path="supplierId" /></td> --%>
+				
+				<td><form:select path="supplierId">
+						<form:option value="0" label="---Select---" />
+						<form:options items="${supplierList}" />
+					</form:select></td>
+				
+				
 			</tr>
 			<tr>
 				<td>Product Image</td>
@@ -84,8 +91,8 @@
 				<td>${product.productDesc}</td>
 				<td>${product.stock}</td>
 				<td>${product.price}</td>
-				<td>${category.catId}</td>
-				<td>${supplier.supplierId}</td>
+				<td>${product.catId}</td>
+				<td>${product.supplierId}</td>
 				
 				<td><c:url value="/deleteProduct/${product.productId}" var="delete"/>
 				<a href="${delete}">DELETE</a>

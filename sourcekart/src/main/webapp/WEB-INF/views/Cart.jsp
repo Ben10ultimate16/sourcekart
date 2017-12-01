@@ -58,9 +58,11 @@
 				 </tr>
 			
 				</table>
-	
+	 <c:if test="${! empty userCartList}">
+		 
 	 <a href="${pageContext.request.contextPath}/Mycart" class="btn btn-cntu" id="placeorder" align="center"></a>
 	<input type="submit" value="PLACE ORDER" align="right" style="margin-left:80%;color:green;">
+	</c:if>
  
 	</form>
  </div>

@@ -28,7 +28,7 @@
 					<c:if test="${sessionScope.roleName=='user'}">
 <input type="hidden" name="cartProductId" value="${product.getProductId()}"/>
 <div class="form-group">
-<input name="cartQnty" class="form-control" placeholder="QUANTITY" />
+<input name="cartQnty" class="form-control" placeholder="QUANTITY"  required="requied"/>
 </div>
 <div class="form-group">
 <input type="submit" value="ADD TO CART"  class="btn btn-primary" />

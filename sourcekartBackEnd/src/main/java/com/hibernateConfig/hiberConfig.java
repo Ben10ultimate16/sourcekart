@@ -33,8 +33,8 @@ public class hiberConfig
 	  System.out.println("Hibernate initated......"); 
 	  DriverManagerDataSource dt=new DriverManagerDataSource();
 	  dt.setDriverClassName("org.h2.Driver");
-	  dt.setUrl("jdbc:h2:tcp://localhost/~/shopping");
-	  dt.setUsername("sa");
+	  dt.setUrl("jdbc:h2:tcp://localhost/~/shoppingsource");
+	  dt.setUsername("sathish");
 	  dt.setPassword("");
 	  System.out.println("Connection is established....");
 	  return dt;

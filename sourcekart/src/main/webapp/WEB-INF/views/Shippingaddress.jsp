@@ -64,12 +64,13 @@
 <tr>
 <th colspan ="2">Expiry Date</th>
 <th> &nbsp; &nbsp; &nbsp;</th>
-<th>CVV</th>
+
 </tr>
 <tr><td colspan="2"><input type="number" min="1" max="12" name="month" placeholder="MM"></tr>
 <tr><td colspan="2"><input type="number" min="00" max="99" name="month" placeholder="YY"></tr>
 <tr><td>&nbsp;&nbsp;&nbsp;</td></tr>
-<tr><td colspan="2"><input type="password" min="00" max="999" name="cvv"></tr>
+<th>CVV</th>
+<tr><td colspan="2"><input type="password" min="00" max="999" name="cvv" placeholder="Enter the cvv number"></tr>
 
 </table>
 <input type="submit" value="PROCEED" class="btn btn-success">

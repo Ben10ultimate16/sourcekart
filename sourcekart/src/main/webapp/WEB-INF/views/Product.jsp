@@ -61,7 +61,13 @@
 
 			<tr>
 				<td>Supplier</td>
-				<td><form:input path="supplierId" /></td>
+				<%-- <td><form:input path="supplierId" /></td> --%>
+				
+				<td><form:select path="supplierId">
+						<form:option value="0" label="---Select---" />
+						<form:options items="${supplierList}" />
+					</form:select></td>
+				
 			</tr>
 			
 			<tr>
@@ -80,8 +86,9 @@
 		</table>
 	</form:form>
 	
-	${error}
-	<table cellspacing="2" align="center">
+<div class="col-md-12 col-lg-12">
+	<table cellspacing="2" align="center"  class="table table-bordered">
+	
 		<tr bgcolor="gray">
 			<td>Product ID</td>
 			<td>Product Name</td>
@@ -110,5 +117,7 @@
 			</tr>
 
 		</c:forEach>
+		</table>
+		</div>
 </body>
 </html>

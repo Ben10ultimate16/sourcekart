@@ -11,7 +11,18 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	<c:url value="/AddSupplier" var="insert" />
 	<form:form action="${insert} " modelAttribute="supplier" id="supplierForm">
-		
+	
+	<%-- <div    class="col-md-4 col-lg-4"> </div>
+	<div    class="col-md-4 col-lg-4"> 
+	 
+	<div class="form-group">
+	    <label>Supplier Id</label>
+	    <form:input path="supplierId" class="form-control" />
+	</div>
+  
+	</div>
+	<div    class="col-md-4 col-lg-4"> </div>
+	 --%>	
 		<table align="center" cellspacing="2">
 			<tr>
 				<td colspan="2">Supplier Module</td>
@@ -40,7 +51,12 @@
 	</tr>
 	</form:form>
 	
-	<table cellspacing="2" align="center">
+	
+	
+	<div    class="col-md-2 col-lg-2"> </div>
+	<div    class="col-md-8 col-lg-8"> 
+	 
+	<table cellspacing="2" align="center"  class="table table-bordered"  >
 		<tr bgcolor="gray">
 			<td>Supplier ID</td>
 			<td>Supplier Name</td>
@@ -62,5 +78,7 @@
 
 		</c:forEach>
 		</table>
+		</div>
+		<div    class="col-md-2 col-lg-2"> </div>
 </body>
 </html>
