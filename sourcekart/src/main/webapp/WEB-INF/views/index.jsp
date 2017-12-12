@@ -105,4 +105,27 @@ src="resources/Img5.jpg" >
 </body>
 </html>
 
+ <c:forEach items="${productList}" var="product">
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+				<a href="${pageContext.request.contextPath}/ProductDetail/${product.productId}">
+					<img src="${pageContext.request.contextPath}/resources/pimages/${product.productId}.jpg" style="height:50px;width:50px" alt="Title1">
+						</a>
+					<div>
+					<span><b> ${product.productName}</b></span>
+					<div class="clear"></div>
+					<div class="clear"></div>
+					<span><i class="fa fa-inr"></i> ${product.price}</span><br>
+					<span>${product.productDesc}</span>
+					
+				</div>
+			
+				</div>
+				</c:forEach>
+				
+					</div>
+					<div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+	
+
+
+
 <jsp:include page="footer.jsp"></jsp:include>

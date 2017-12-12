@@ -10,6 +10,12 @@
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
+
+<c:if test="${pageContext.request.userPrincipal.name!=null}">
+	<c:if test = "${sessionScope.roleName == 'admin'}">
+	
+
+
 	<form:form action="${pageContext.request.contextPath}/UpdateSupplier"
 		modelAttribute="supplier" method="post" enctype="multipart/form-data">
 		<table align="center" cellspacing="2">
@@ -40,7 +46,12 @@
 	</tr>
 	</form:form>
 	
-	<table cellspacing="2" align="center">
+	
+	<div    class="col-md-2 col-lg-2"> </div>
+	<div    class="col-md-8 col-lg-8"> 
+	
+	
+	<table cellspacing="2" align="center" class="table table-bordered"  >
 		<tr bgcolor="gray">
 			<td>Supplier ID</td>
 			<td>Supplier Name</td>
@@ -65,5 +76,20 @@
 
 
 	</table>
+	
+	
+		</c:if>
+	
+	<c:if test = "${sessionScope.roleName == 'user'}">
+		<jsp:forward page="login.jsp" />
+	</c:if>
+	
+</c:if>
+
+<c:if test="${pageContext.request.userPrincipal.name==null}">
+	<jsp:forward page="login.jsp" />
+</c:if>
+
+<div    class="col-md-2 col-lg-2"> </div>	
 </body>
 </html>

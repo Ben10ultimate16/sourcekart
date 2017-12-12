@@ -11,55 +11,78 @@
 </head>
 <body>
 
-<!--<form action="AddCategory" method="post">-->
-<c:url value="/updateCategory" var="update"/>
-<form:form action="${update}" modelAttribute="category">
-<table align="center" cellspacing="2" >
-<tr >
-<td colspan="2">Category Module</td>
-</tr>
-<tr>
-<td>Category ID</td>
-<!--<td><input type="text" name="catId"/></td>-->
-<td><form:input path="catId"/></td>
-</tr>
-<tr>
-<td>Category Name</td>
-<!--<td><input type="text" name="catName"/></td>-->
-<td><form:input path="catName"/></td>
-</tr>
-<tr>
-<td>Category Desc</td>
-<!--<td><input type="text" name="catDesc"/></td>-->
-<td><form:input path="catDesc"/></td>
-</tr>
-<tr>
-<td colspan="2">
-<center><input type="submit"  value="UpdateCategory"/></center>
-</td>
-</tr>
-</table>
-</form:form>
+<jsp:include page="header.jsp"></jsp:include>
 
-<table cellspacing="2" align="center">
-<tr bgcolor="green">
-<td>Category ID</td>
-<td>Category Name</td>
-<td>Category Description</td>
-<td>Operation</td>
-</tr>
-<c:forEach items="${CategoryList }" var="category">
-<tr bgcolor="cyan">
-<td>${category.catId}</td>
-<td>${category.catName}</td>
-<td>${category.catDesc}</td>
+<c:if test="${pageContext.request.userPrincipal.name!=null}">
+	<c:if test = "${sessionScope.roleName == 'admin'}">
 
-<td>
-<a href="<c:url value="/deleteCategory/${category.catId}"/>">DELETE</a>
-<a href="<c:url value="/updateCategory/${category.catId}"/>">UPDATE</a>
-</td>
-</tr>
-</c:forEach>
-</table>
+				<c:url value="/updateCategory" var="update"/>
+				<form:form action="${update}" modelAttribute="category">
+				<table align="center" cellspacing="2" >
+				<tr >
+				<td colspan="2">Category Module</td>
+				</tr>
+				<tr>
+				<td>Category ID</td>
+				<!--<td><input type="text" name="catId"/></td>-->
+				<td><form:input path="catId"/></td>
+				</tr>
+				<tr>
+				<td>Category Name</td>
+				<!--<td><input type="text" name="catName"/></td>-->
+				<td><form:input path="catName"/></td>
+				</tr>
+				<tr>
+				<td>Category Desc</td>
+				<!--<td><input type="text" name="catDesc"/></td>-->
+				<td><form:input path="catDesc"/></td>
+				</tr>
+				<tr>
+				<td colspan="2">
+				<center><input type="submit"  value="UpdateCategory"/></center>
+				</td>
+				</tr>
+				</table>
+				</form:form>
+				
+				<div class="col-md-12 col-lg-12">
+				<table cellspacing="2" align="center"  class="table table-bordered">
+				<tr bgcolor="gray">
+				<td>Category ID</td>
+				<td>Category Name</td>
+				<td>Category Description</td>
+				<td>Operation</td>
+				</tr>
+				<c:forEach items="${CategoryList }" var="category">
+				<tr bgcolor="cyan">
+				<td>${category.catId}</td>
+				<td>${category.catName}</td>
+				<td>${category.catDesc}</td>
+				
+				<td>
+				<a href="<c:url value="/deleteCategory/${category.catId}"/>">DELETE</a>
+				<a href="<c:url value="/updateCategory/${category.catId}"/>">UPDATE</a>
+				</td>
+				</tr>
+				</c:forEach>
+				
+				</table>
+				</div>
+				
+				</c:if>
+	
+	<c:if test = "${sessionScope.roleName == 'user'}">
+		<jsp:forward page="login.jsp" />
+	</c:if>
+	
+</c:if>
+
+<c:if test="${pageContext.request.userPrincipal.name==null}">
+	<jsp:forward page="login.jsp" />
+</c:if>
+				
+				
+				
+
 </body>
 </html>

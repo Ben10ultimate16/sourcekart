@@ -27,7 +27,12 @@
  --%>
  <jsp:include page="header.jsp"></jsp:include>
  
+ 
+ 
+ 
+ 
  <body>
+ 
 
 <div><div class="container">
 <h1>Sourcekart Customer sign up Form</h1>

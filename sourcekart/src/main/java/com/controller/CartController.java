@@ -49,6 +49,11 @@ SessionFactory sessionFactory;
 	@RequestMapping(value="/MyCart",method=RequestMethod.GET)
 	public String myCart(HttpSession session,Model m,HttpServletRequest req)
 	{
+		String userName = (String)session.getAttribute("username");
+		if(userName=="" || userName == null)
+		{
+			return "login";
+		}
 		Principal principal=req.getUserPrincipal();
 		String userEmail=principal.getName();
 		List<Cart> userCartList=cartDao.retriveCart(userEmail);
@@ -58,7 +63,12 @@ SessionFactory sessionFactory;
 	@RequestMapping(value="/AddCart",method=RequestMethod.POST)
 	public String addCart(HttpSession session,Model m,HttpServletRequest req)
 	
-	{
+	{   String userName = (String)session.getAttribute("username");
+		if(userName=="" || userName == null)
+		{
+			return "login";
+		}
+		
 		Principal principal=req.getUserPrincipal();
 		String userEmail=principal.getName();
 		int cartId=0;
@@ -117,7 +127,12 @@ SessionFactory sessionFactory;
 	@RequestMapping(value="/placeorder",method=RequestMethod.GET)
 	public String placeorderprocess(HttpSession session,Model m,HttpServletRequest req)
 	{
-	
+		String userName = (String)session.getAttribute("username");
+		if(userName=="" || userName == null)
+		{
+			return "login";
+		}
+		
 		Principal principal = req.getUserPrincipal();
 		String userEmail = principal.getName();
 		User user = userDao.getUser(userEmail);

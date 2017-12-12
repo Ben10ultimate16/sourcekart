@@ -3,6 +3,11 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
  <jsp:include page="header.jsp"></jsp:include> 
+ 
+  <c:if test="${pageContext.request.userPrincipal.name!=null}">
+	<c:if test = "${sessionScope.roleName == 'user'}">
+ 
+ 
  <div class="clear spaces20"></div>
 <div class="clear spaces20"></div>
 
@@ -37,4 +42,19 @@
 </div>
 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
 </form>
-</div>				
+</div>		
+
+</c:if>
+	
+	<c:if test = "${sessionScope.roleName == 'admin'}">
+		<jsp:forward page="login.jsp" />
+	</c:if>
+	
+</c:if>
+
+<c:if test="${pageContext.request.userPrincipal.name==null}">
+	<jsp:forward page="login.jsp" />
+</c:if>
+				
+
+		

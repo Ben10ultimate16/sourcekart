@@ -9,30 +9,24 @@
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
+	
+	<c:if test="${pageContext.request.userPrincipal.name!=null}">
+	<c:if test = "${sessionScope.roleName == 'admin'}">
+	
+	
 	<c:url value="/AddSupplier" var="insert" />
 	<form:form action="${insert} " modelAttribute="supplier" id="supplierForm">
 	
-	<%-- <div    class="col-md-4 col-lg-4"> </div>
-	<div    class="col-md-4 col-lg-4"> 
-	 
-	<div class="form-group">
-	    <label>Supplier Id</label>
-	    <form:input path="supplierId" class="form-control" />
-	</div>
-  
-	</div>
-	<div    class="col-md-4 col-lg-4"> </div>
-	 --%>	
 		<table align="center" cellspacing="2">
 			<tr>
 				<td colspan="2">Supplier Module</td>
 			</tr>
 
-			<tr>
+			<%-- <tr>
 				<td>Supplier ID</td>
 				<td><form:input path="supplierId" /></td>
 			</tr>
-
+ --%>
 			<tr>
 				<td>Supplier Name</td>
 				<td><form:input path="supplierName" /></td>
@@ -79,6 +73,20 @@
 		</c:forEach>
 		</table>
 		</div>
+		
+		</c:if>
+	
+	<c:if test = "${sessionScope.roleName == 'user'}">
+		<jsp:forward page="login.jsp" />
+	</c:if>
+	
+</c:if>
+
+<c:if test="${pageContext.request.userPrincipal.name==null}">
+	<jsp:forward page="login.jsp" />
+</c:if>
+		
+		
 		<div    class="col-md-2 col-lg-2"> </div>
 </body>
 </html>

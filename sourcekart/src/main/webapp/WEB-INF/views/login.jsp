@@ -12,24 +12,43 @@
 
 <h2>Login Form</h2>
 
-<form action="${pageContext.request.contextPath}/login" id="loginForm"  method="post" >
+<form action="${pageContext.request.contextPath}/login" id="loginForm"  method="post"  class="form-horizontal" >
  
 
-  <div class="container">
-    <label><b>Email</b></label>
-    <input type="text" placeholder="Enter Username" name="email" >
-
-    <label><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password">
-        
-   <input type="submit" value="login"/>
-   
+ 
+ 
+  <div class="form-group">
+    <label  class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-6">
+      <input type="email" class="form-control"  placeholder="Email" name="email" >
+    </div>
   </div>
-
-  
-   
-  
+  <div class="form-group">
+    <label  class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-6">
+      <input type="password" class="form-control"  placeholder="Password"  name="password">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">login</button>
+    </div>
+  </div>
 </form>
-
+ 
+ 
+ 
+ 
+ 
+ 
 </body>
 </html>

@@ -58,13 +58,19 @@
 </button>
 </ul>
 </div>
-<div class="collapse navbar-collapse" id="bs-example-nav">
-<ul class="nav navbar-nav">
-<!-- <li><a href="/"> Home<i class="fa fa-home" aria-hidden="true"></i></a></li> -->
+<div class="collapse navbar-collapse" id="bs-example-nav"> 
+<a href="${pageContext.request.contextPath}/"></a><img alt="" src="${pageContext.request.contextPath}/ resources/images/paint.jpg" class="logoImgStyle shiftLift Left5"/>
+<ul class="nav navbar-left navbar-nav left0">
+ <a>
+	<img src="${pageContext.request.contextPath}/resources/paint.jpg" class="logoImgStyle shiftLeft left5" height="70px" width="70px"/>	
+	</a>
+	</ul>
+<ul class="nav navbar-nav">	
+
 
 <c:url value="/" var="home"></c:url>
 <li><a href="${home}">Home</a></li>
-
+<ul class="nav navbar-left navbar-nav left0">
 <c:if test="${pageContext.request.userPrincipal.name==null}">
 <li><a style="color:white" href="${pageContext.request.contextPath}/goTologin"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;LOGIN</a></li>
 <c:url value="/register" var="reg"></c:url>

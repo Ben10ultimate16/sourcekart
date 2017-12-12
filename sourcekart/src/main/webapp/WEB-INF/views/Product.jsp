@@ -11,6 +11,8 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	
 	
+	<c:if test="${pageContext.request.userPrincipal.name!=null}">
+	<c:if test = "${sessionScope.roleName == 'admin'}">
 	
 	
 	
@@ -23,11 +25,12 @@
 			<tr>
 				<td colspan="2">Product Detail</td>
 			</tr>
-			<tr>
+			
+			<%-- <tr>
 				<td>Product ID</td>
 				<td><form:input path="productId" /></td>
 			</tr>
-
+ --%>
 			<tr>
 				<td>Product Name</td>
 				<td><form:input path="productName" /></td>
@@ -97,6 +100,7 @@
 			<td>Price</td>
 			<td>Category ID</td>
 			<td>Supplier ID</td>
+			<td>Product Image</td>
 			<td>operation</td>
 		</tr>
 
@@ -109,7 +113,10 @@
 				<td>${product.price}</td>
 				<td>${product.catId}</td>
 				<td>${product.supplierId}</td>
-
+				<td>
+				
+				<img src="<c:url value="/resources/pimages/${product.productId}.jpg"/>" width=100px;height=100px;/>
+                 </td>
 				<td><c:url value="/deleteProduct/${product.productId}"
 						var="delete" /> <a href="${delete}">DELETE</a> <c:url
 						value="/updateProduct/${product.productId}" var="update" /> <a
@@ -118,6 +125,24 @@
 
 		</c:forEach>
 		</table>
+		
+				
+		
 		</div>
+		
+		</c:if>
+	
+	<c:if test = "${sessionScope.roleName == 'user'}">
+		<jsp:forward page="login.jsp" />
+	</c:if>
+	
+</c:if>
+
+<c:if test="${pageContext.request.userPrincipal.name==null}">
+	<jsp:forward page="login.jsp" />
+</c:if>
+				
+		
+		
 </body>
 </html>

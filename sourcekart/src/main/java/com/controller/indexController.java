@@ -37,6 +37,9 @@ public class indexController
 		{
 		List<Product> listLatestProduct=productDAO.retriveLatestProduct();
 		m.addAttribute("listLatestProduct", listLatestProduct);
+		List<Product> listProduct=productDAO.retrieveProduct();
+		m.addAttribute("productList",listProduct);
+		
 		return "index";
 	
 		}		
@@ -82,6 +85,8 @@ public class indexController
 		m.addAttribute(user);
 		return "login";
 	}
+   
+   
 	
 	@RequestMapping("/userLogged")
 	public String userLogged(Model m,HttpSession session)
