@@ -209,4 +209,75 @@ $(function()
 	});
 	
 	
+	$("#shippingaddressForm").validate({
+		rules : 
+		{
+			cardnum :
+			{
+				required:true
+			},
+			cardname :
+			{
+				required : true
+			},
+			month :
+			{
+				required : true
+			},
+			
+			year :
+			{
+				required : true
+			},
+			
+			cvv:
+			{
+				required : true
+			}
+			
+		},
+		messages :
+		{
+			cardnum :
+			{
+				required:"Please Enter Card Number"
+			},
+			cardname :
+			{
+				required : "Please Enter your name"
+			},
+			month : 
+			{
+				required : "Please Enter Month"
+			},
+		
+		
+			year : 
+		{
+			required : "Please Enter year"
+		},
+		
+		cvv:
+		{
+			required : "Please Enter cvv Number"
+		}
+	},
+		
+		submitHandler: function(form)
+		{
+			form.submit();
+		}
+		
+		
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 });

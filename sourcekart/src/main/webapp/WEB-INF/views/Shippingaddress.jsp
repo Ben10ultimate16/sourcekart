@@ -21,7 +21,7 @@
 
 <div class= "outer">
 <div class= "well" style= "width:100%">
-<form action= "${pageContext.request.contextPath}/invoiceProcess" method="post">
+<form action= "${pageContext.request.contextPath}/invoiceProcess" id="shippingaddressForm">
 <c:set var ="gtot" value ="0"></c:set>
 <c:forEach var="c" items= "${cart}">
 <c:set var ="gtot" value ="${gtot+c.cartPrice*c.cartQnty}">
@@ -73,7 +73,7 @@
 
 </tr>
 <tr><td colspan="2"><input type="number" min="1" max="12" name="month" placeholder="MM"></tr>
-<tr><td colspan="2"><input type="number" min="00" max="99" name="month" placeholder="YY"></tr>
+<tr><td colspan="2"><input type="number" min="00" max="99" name="year" placeholder="YY"></tr>
 <tr><td>&nbsp;&nbsp;&nbsp;</td></tr>
 <th>CVV</th>
 <tr><td colspan="2"><input type="password" min="00" max="999" name="cvv" placeholder="Enter the cvv number"></tr>

@@ -183,6 +183,9 @@ public class ProductController
 		m.addAttribute(product1);
 		List<Product> listProduct=productDAO.retrieveProduct();
 		m.addAttribute("productList",listProduct);
+		m.addAttribute("categoryList",this.getCategories());
+		m.addAttribute("supplierList",this.getSupplier());
+	
 		return "Product";
 	}
 	

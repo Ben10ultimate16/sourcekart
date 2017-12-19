@@ -17,7 +17,7 @@
 <div class="clear spaces20"></div>
 
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<form action="${pageContext.request.contextPath}/AddCart" method="POST">
+<form action="${pageContext.request.contextPath}/AddCart"  >
 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" >
 
 <img src="${pageContext.request.contextPath}/resources/pimages/${product.getProductId()}.jpg"  alt="Image" class="productimage">

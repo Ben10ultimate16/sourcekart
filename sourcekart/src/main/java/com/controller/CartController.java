@@ -60,10 +60,10 @@ SessionFactory sessionFactory;
 		m.addAttribute("userCartList",userCartList);
 		return "Cart";
 	}	
-	@RequestMapping(value="/AddCart",method=RequestMethod.POST)
+	@RequestMapping(value="/AddCart")
 	public String addCart(HttpSession session,Model m,HttpServletRequest req)
-	
-	{   String userName = (String)session.getAttribute("username");
+	{   
+		String userName = (String)session.getAttribute("username");
 		if(userName=="" || userName == null)
 		{
 			return "login";
@@ -124,6 +124,8 @@ SessionFactory sessionFactory;
 		return "Cart";
 	}
 	
+	
+	
 	@RequestMapping(value="/placeorder",method=RequestMethod.GET)
 	public String placeorderprocess(HttpSession session,Model m,HttpServletRequest req)
 	{
@@ -143,9 +145,23 @@ SessionFactory sessionFactory;
 				
 	}
 	
-	@RequestMapping(value="/invoiceProcess",method=RequestMethod.POST)
-	public ModelAndView invoiceprocess(HttpServletRequest req)
+	@RequestMapping(value="/invoiceProcess")
+	public ModelAndView invoiceprocess(HttpServletRequest req,HttpSession session,Model m)
 	{
+		
+		 
+		String userName = (String)session.getAttribute("username");
+		if(userName=="" || userName == null)
+		{
+			  ModelAndView mv=new ModelAndView(); 
+		       
+		       mv.setViewName("login");
+		       return mv;
+			 
+		}
+		
+		
+		
 		ModelAndView mv = new ModelAndView("invoice");
 		Double d = Double.parseDouble(req.getParameter("total"));
 		String pmt = req.getParameter("payment");
@@ -166,8 +182,16 @@ SessionFactory sessionFactory;
 	}
 	
 	@RequestMapping(value="/ack")
-	public String ack(HttpServletRequest req)
+	public String ack(HttpServletRequest req,HttpSession session,Model m)
 	{
+			String userName = (String)session.getAttribute("username");
+			if(userName=="" || userName == null)
+			{
+				return "login";
+			}
+		
+		
+		
 		Principal principal = req.getUserPrincipal();
 		String email = principal.getName();
 		List<Cart> userCartlist =cartDao.retriveCart(email);
