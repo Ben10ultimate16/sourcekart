@@ -102,8 +102,7 @@ src="resources/Img5.jpg" >
 
 </div>
 </div>
-</body>
-</html>
+
 
  <c:forEach items="${productList}" var="product">
     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
@@ -128,4 +127,7 @@ src="resources/Img5.jpg" >
 
 
 
+
 <jsp:include page="footer.jsp"></jsp:include>
+</body>
+</html>

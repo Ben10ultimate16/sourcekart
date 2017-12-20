@@ -209,7 +209,7 @@ $(function()
 	});
 	
 	
-	$("#shippingaddressForm").validate({
+	/*$("#shippingaddressForm").validate({
 		rules : 
 		{
 			cardnum :
@@ -269,7 +269,7 @@ $(function()
 		}
 		
 		
-	});
+	});*/
 	
 	
 	

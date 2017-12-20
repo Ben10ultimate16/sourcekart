@@ -11,6 +11,8 @@
 <h1>Your Order Has Been Successfully Placed </h1>
 <h2>Thankyou for Shopping!</h2>
 <img src="${pageContext.request.contextPath}/resources/thank-you.gif" alt=":-)" class="thankyou">
+<br> 	
+ <a href="${pageContext.request.contextPath}/" class="btn btn-cntu" id="continueshop" align="center"> CONTINUE SHOPPING</a> 
  </div>
 <div class="col-lg-2 col-md-2 col-xs-12 col-sm-12"> </div>
 </div>

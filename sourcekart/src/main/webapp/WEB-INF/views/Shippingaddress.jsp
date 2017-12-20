@@ -54,13 +54,14 @@
 
 <br><br><hr>
 <div style ="margin-top:15px;">
-<h3><strong>Enter Card Details</strong></h3>
+<!-- <h3><strong>Enter Card Details</strong></h3> -->
 </div>
 <input type ="hidden" name ="total" value ="${gtot }">
 <br>
 <select name ="payment">
-<option value="COD">Cash On Delivery </option>
-<option value="NB">Net Banking </option>
+ <option value="COD">Cash On Delivery </option>
+ 
+<!-- <option value="NB">Net Banking </option> -->
 <option value="DrCr">Debit or Credit Card  </option>
 </select>
 <br><br>
